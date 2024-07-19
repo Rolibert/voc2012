@@ -14,13 +14,13 @@ from utils.data_txt import image2csv
 import argparse
 from tqdm import tqdm
 import time
-
+from model.FCN import FCN32s, FCN8x
 #   引用u3+模型
 from u3plus.UNet_3Plus import UNet_3Plus
 from u3plus.UNet_3Plus import UNet_3Plus_DeepSup
 
 parser = argparse.ArgumentParser(description="choose the model")
-parser.add_argument('-m','--model', default='Unet3+' ,type= str, help= "输入模型名字",
+parser.add_argument('-m','--model', default='FCN' ,type= str, help= "输入模型名字",
                     choices = ['Unet','FCN','Deeplab','Unet3+','Unet3+_Sup'])
 parser.add_argument('-g', '--gpu', default=0, type=int, help="输入所需GPU")
 args = parser.parse_args()
